@@ -1,0 +1,25 @@
+`timescale 1ns / 1ps
+module test_bench();
+reg [1:0] A_decoder;
+   wire [3:0] Y_decoder;
+
+   decoder_2to4 U1(.A(A_decoder), .Y(Y_decoder));
+
+   initial begin
+      A_decoder = 2'b00;
+      #10 $display("Input: %b, Output: %b", A_decoder, Y_decoder);
+
+      A_decoder = 2'b01;
+      #10 $display("Input: %b, Output: %b", A_decoder, Y_decoder);
+
+      A_decoder = 2'b10;
+      #10 $display("Input: %b, Output: %b", A_decoder, Y_decoder);
+
+      A_decoder = 2'b11;
+      #10 $display("Input: %b, Output: %b", A_decoder, Y_decoder);
+
+      $stop;
+   end
+
+endmodule
+
